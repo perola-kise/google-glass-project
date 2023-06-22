@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="_css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="_css/form.css">
+    <title>Fale Conosco</title>
+    <script src="_javascript/funcoes.js"></script>
+    <script>
+        function calc_total(){
+            var qtd = parseInt(document.getElementById('cQtd').value);
+            tot = qtd * 1500;
+            document.getElementById('cReal').value = tot;
+        }
+
+    </script>
+</head>
+<body>
+<div id="interface">
+    <header id="cabecalho">
+        <h1>Google Glass</h1>
+        <h2>A revolução do Google está chegando</h2>
+
+        <img id="icone" src="_imagens/contato.png">
+    <nav id="menu">
+    <h1>Menu Principal</h1>
+
+    <ul>
+        <li onmouseover=mudaFoto("_imagens/home.png") onmouseout=mudaFoto("_imagens/contato.png")><a href="index.html"> Home</a></li>
+        <li onmouseover=mudaFoto("_imagens/especificacoes.png") onmouseout=mudaFoto("_imagens/contato.png")><a href="specs.html"> Especificaçõe</a></li>
+        <li onmouseover=mudaFoto("_imagens/fotos.png") onmouseout=mudaFoto("_imagens/contato.png")><a href="fotos.html"> Fotos</a></li>
+        <li onmouseover=mudaFoto("_imagens/multimidia.png") onmouseout=mudaFoto("_imagens/contato.png")><a href="multimidia.html"> Multimídia</a></li>
+        <li onmouseover=mudaFoto("_imagens/contato.png") onmouseout=mudaFoto("_imagens/contato.png")><a href="fale-conosco.html"> Fale conosco</a></li>
+</ul>
+    </nav>
+</header>
+    <section id="principal-full">
+        <article id="noticia-principal">
+            <header id="cabecalho-artigo">
+    <hgroup>
+        <h2>Fale Conosco > Contato</h2>
+        <h1>Formulário de Contato</h1>
+        <h2>por Pérola Kise</h2>
+        <h3>Atualizado em 23/Abril/2023</h3>
+    </hgroup>
+            </header>
+            <form method="post" id="cContato" action="mailto:pepekise@gmail.com" oninput="calc_total();">
+                <fieldset id="usuario">
+                    <legend>Identificação do Usuário</legend>
+                    <p><label for="cNome">Nome:</label>
+                        <input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo"></p>
+                    <p><label for="cSenha">Senha:</label>
+                        <input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 dígitos"></p>
+                    <p><label for="cMail">E-mail:</label><input type="email" name="tMail" id="cMail" size="20" maxlength="30"></p>
+                    <fieldset id="genero"><legend>Sexo:</legend>
+                        <input type="radio" name="tGenero" id="cMasc"><label for="cMasc">Masculino</label><br/>
+                        <input type="radio" name="tGenero" id="cFem"><label for="cFem">Feminino</label><br/>
+                        <input type="radio" name="tGenero" id="cNon"><label for="cNon">Não-Binário</label>
+                    </fieldset>
+                    <p><label for="cDate">Data de Nascimento:</label><input type="date" name="tDate" id="cDate"></p>
+                </fieldset>
+
+                <fieldset  id="endereco">
+                    <legend>Endereço do Usuário</legend>
+                    <p><label for="cLog">Logradouro:</label>
+                        <input type="text" name="tLog" id="cLog" size="13" maxlength="80" placeholder="Rua, Av, Trav"></p>
+                    <p><label for="cNum">Número:</label>
+                        <input type="number" name="tNum" id="cNum" min="0" max="1999"></p>
+                    <p><label for="cEstado">Estado:</label>
+                        <select type="" name="tEstado" id="cEstado">
+                            <optgroup label="Região Norte">
+                                <option value="AC">Acre</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="PA">Pará</option>
+                                <option value="RD">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="TO">Tocantins</option>
+                            </optgroup>
+                            <optgroup label="Região Nordeste">
+                                <option value="AL">Alagoas</option>
+                                <option value="BA">Bahia </option>
+                                <option value="CE">Ceará</option>
+                                <option value="MA">Maranhão </option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RN">Rio Grande do Norte </option>
+                                <option value="SE">Sergipe</option>
+                            </optgroup>
+                            <optgroup label="Região Centro-Oeste">
+                                <option value="GO">Goiás</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul </option>
+                            </optgroup>
+                            <optgroup label="Região Sudeste">
+                                <option value="DF">Distrito Federal </option>
+                                <option value="ES">Espírito Santo </option>
+                                <option value="MG">Minas Gerais </option>
+                                <option value="RJ">Rio de Janeiro </option>
+                                <option selected value="SP">São Paulo </option>
+                            </optgroup>
+                            <optgroup label="Região Sudeste">
+                                <option value="PR">Paraná</option>
+                                <option value="RS">Rio Grande do Sul </option>
+                                <option value="SC">Santa Catarina </option>
+                            </optgroup>
+                        </select>
+                    </p>
+                    <p><label for="cCity">Cidade:</label>
+                        <input type="text" name="tCity" id="cCity" maxlength="40" size="20" placeholder="Sua Cidade" list="cidades">
+                        <datalist id="cidades">
+
+
+                                <option value="Arujá"></option>
+                                <option value="Barueri"></option>
+                                <option value="Campinas"></option>
+                                <option value="Guarulhos"></option>
+                                <option value="São Paulo"></option>
+                                <option value="São Roque"></option>
+                        </datalist>
+                    </p>
+                </fieldset>
+
+                <fieldset id="mensagem">
+                    <legend>Mensagem do Usuário</legend>
+                    <p><label for="cGrau">Grau de Urgência:</label>
+                        Mín<input type="range" name="tGrau" id="cGrau" min="0" max="10">Max</p>
+                    <p><label for="cMesg">Mensagem:</label>
+                        <textarea name="tMesg" id="cMesg" rows="5" cols="45" placeholder="Deixe aqui sua mensagem" ></textarea></p>
+                </fieldset>
+
+                <fieldset id="glass">
+                    <legend>Quero um Google Glass</legend>
+                    <p><input type="checkbox" name="tGGG" id="cGGG" checked>
+                        <label for="cGGG">Gostaria de adquirir um Google Glass quando disponível</label></p>
+                    <p><label for="cCor">Cor:</label>
+                        <input type="color" name="tCor" id="cCor" value="#0000FF"></p>
+                    <p><label for="cQtd">Quantidade:</label>
+                        <input type="number" name="tQtd" id="cQtd" min="0" max="5" value="0"></p>
+                    <p><label for="cReal">Preço Total: R$</label>
+                        <input type="text" name="tReal" id="cReal" placeholder="Total a Pagar" readonly></p>
+                </fieldset>
+                <input type="image" name="tEnviar" id="cEnviar" src="_imagens/botao-enviar.png">
+            </form>
+        </article>
+    </section>
+    <footer id="rodape">
+<p>&copy;Copyright 2023- by Pérola Kise<br/>
+<a href="https://www.linkedin.com/in/perola-kise-3240b6187/"> Linkedin</a> |
+    <a href="https://github.com/perola-kise"> Github</a></p>
+</footer>
+
+</div>
+</body>
+</html>
